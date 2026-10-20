@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b7a43">
+  <meta name="description" content="TECGLOW Tech & Creative Solutions — Where Technology Meets Creativity. Website development, graphic design, branding and digital solutions.">
+  <title>TECGLOW | Tech & Creative Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#0b7a43;--green2:#16a05a;--deep:#062d1c;--mint:#eaf8ef;--ink:#13251b;--muted:#617168;--line:#e1ebe4;--white:#fff;--shadow:0 18px 55px rgba(8,62,35,.10)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button,a{ -webkit-tap-highlight-color:transparent}
+    .container{width:min(1140px,calc(100% - 40px));margin:auto}
+    .topbar{background:var(--deep);color:#d9f5e3;font-size:.83rem;padding:8px 0}
+    .topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(225,235,228,.85)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.04em;font-size:1.4rem}
+    .brand-mark{width:42px;height:42px;display:grid;place-items:center;background:linear-gradient(145deg,var(--green2),var(--deep));color:white;border-radius:13px;font-weight:800;box-shadow:0 8px 20px #0b7a4330}
+    .brand small{display:block;font:600 .62rem "DM Sans",sans-serif;letter-spacing:.11em;color:var(--muted);text-transform:uppercase;margin-top:-3px}
+    .nav-links{display:flex;align-items:center;gap:27px;font-size:.92rem;font-weight:600}
+    .nav-links a:not(.btn):hover{color:var(--green)}
+    .menu-btn{display:none;background:#f1f8f3;border:0;border-radius:12px;padding:10px;color:var(--deep)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:12px;padding:13px 19px;font-weight:700;transition:.2s;cursor:pointer}
+    .btn-primary{background:var(--green);color:#fff;box-shadow:0 9px 20px #0b7a4326}
+    .btn-primary:hover{background:#075e33;transform:translateY(-2px)}
+    .btn-outline{border-color:#cfe0d4;background:#fff;color:var(--deep)}
+    .btn-outline:hover{border-color:var(--green);color:var(--green)}
+    .hero{overflow:hidden;position:relative;padding:86px 0 80px;background:radial-gradient(circle at 83% 25%,#d8f4e2 0,transparent 27%),linear-gradient(120deg,#f7fcf8 0%,#fff 55%,#f0faf3 100%)}
+    .hero:before{content:"";position:absolute;width:420px;height:420px;border:1px solid #c8ead4;border-radius:50%;right:-180px;bottom:-240px;box-shadow:0 0 0 42px #e7f7ec,0 0 0 84px #f0faf3}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px;position:relative}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;background:#e4f6ea;border:1px solid #d1eedb;padding:8px 12px;border-radius:99px}
+    .dot{width:7px;height:7px;background:var(--green2);border-radius:50%;box-shadow:0 0 0 4px #c8efd5}
+    h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.13;letter-spacing:-.045em}
+    h1{font-size:clamp(2.7rem,5.2vw,4.7rem);margin:23px 0 20px;max-width:680px}
+    h1 span{color:var(--green)}
+    .hero-copy{font-size:1.08rem;color:var(--muted);max-width:560px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:29px 0 30px}
+    .trust{display:flex;gap:16px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.88rem}
+    .trust strong{color:var(--ink)}
+    .trust-check{color:var(--green);font-weight:900;margin-right:4px}
+    .visual{min-height:425px;position:relative;display:grid;place-items:center}
+    .visual-orb{position:absolute;width:340px;height:340px;border-radius:50%;background:linear-gradient(145deg,#d6f4df,#f5fcf7);border:1px solid #c6ead2}
+    .dashboard{position:relative;width:min(100%,440px);background:#fff;border:1px solid #e0ece3;border-radius:23px;padding:18px;box-shadow:0 28px 75px #0b59301c;transform:rotate(2deg)}
+    .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .dash-title{font:800 .92rem Manrope,sans-serif}
+    .dash-pill{font-size:.7rem;color:var(--green);background:#e9f8ee;border-radius:30px;padding:5px 9px;font-weight:800}
+    .dash-banner{background:linear-gradient(125deg,#073a24,#0c8a4b);color:#fff;border-radius:15px;padding:22px;min-height:130px;position:relative;overflow:hidden}
+    .dash-banner:after{content:"✳";position:absolute;font-size:120px;right:10px;top:-35px;color:#ffffff17}
+    .dash-banner small{color:#bdeacb;letter-spacing:.12em;font-weight:700;font-size:.67rem}
+    .dash-banner h3{font-size:1.55rem;margin:8px 0;max-width:230px}
+    .dash-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}
+    .mini-card{padding:13px 10px;border:1px solid #e8eee9;border-radius:12px;background:#fbfdfb}
+    .mini-icon{height:30px;width:30px;border-radius:9px;background:#e5f7eb;color:var(--green);display:grid;place-items:center;font-weight:900;margin-bottom:9px}
+    .mini-card b{font-size:.74rem;display:block}
+    .mini-card small{font-size:.65rem;color:var(--muted)}
+    .float-note{position:absolute;right:-6px;bottom:20px;background:#fff;padding:13px 17px;border-radius:15px;box-shadow:var(--shadow);border:1px solid var(--line);font-size:.8rem;font-weight:700;transform:rotate(-3deg)}
+    .float-note span{color:var(--green);font-size:1.05rem;margin-right:5px}
+    .stats{padding:25px 0;border-bottom:1px solid var(--line)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .stat{text-align:center;border-right:1px solid var(--line)}
+    .stat:last-child{border:0}
+    .stat strong{font:800 1.08rem Manrope,sans-serif;display:block}
+    .stat span{font-size:.83rem;color:var(--muted)}
+    section{padding:88px 0}
+    .section-head{text-align:center;max-width:690px;margin:0 auto 43px}
+    .kicker{font-size:.76rem;color:var(--green);text-transform:uppercase;letter-spacing:.15em;font-weight:800}
+    h2{font-size:clamp(2rem,4vw,3.1rem);margin:12px 0 15px}
+    .section-head p,.muted{color:var(--muted)}
+    .services{background:#fbfdfb}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+    .service-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;transition:.25s}
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#bfe5cb}
+    .service-icon{height:52px;width:52px;border-radius:15px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-size:1.45rem;margin-bottom:22px}
+    .service-card h3{font-size:1.18rem;letter-spacing:-.025em;margin-bottom:10px}
+    .service-card p{font-size:.92rem;color:var(--muted);margin-bottom:18px}
+    .text-link{font-size:.9rem;font-weight:800;color:var(--green);display:inline-flex;align-items:center;gap:7px}
+    .text-link:hover{gap:11px}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+    .about-art{min-height:370px;border-radius:25px;background:linear-gradient(145deg,#073c25,#0b7a43);padding:28px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative;overflow:hidden}
+    .about-art:after{content:"T";position:absolute;font:800 390px Manrope,sans-serif;right:-5px;bottom:-150px;color:#ffffff0d}
+    .art-label{font-size:.72rem;letter-spacing:.16em;color:#b8e8c8;font-weight:800;text-transform:uppercase}
+    .art-quote{font:800 clamp(1.8rem,3.4vw,2.7rem) Manrope,sans-serif;line-height:1.18;max-width:340px;position:relative;z-index:1}
+    .art-bottom{display:flex;justify-content:space-between;align-items:end;position:relative;z-index:1}
+    .art-bottom strong{font:800 1.05rem Manrope}
+    .art-bottom small{display:block;color:#b8e8c8}
+    .about-copy p{color:var(--muted);margin:16px 0}
+    .check-list{list-style:none;display:grid;gap:12px;margin:24px 0}
+    .check-list li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+    .check-list span{color:var(--green);font-weight:900}
+    .portfolio{background:#fbfdfb}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{border:1px solid var(--line);background:#fff;border-radius:18px;overflow:hidden}
+    .project-art{height:190px;padding:20px;display:flex;align-items:end;position:relative;overflow:hidden}
+    .project-art:before,.project-art:after{content:"";position:absolute;border-radius:50%;border:1px solid #ffffff60}
+    .project-art:before{width:210px;height:210px;right:-40px;top:-90px}
+    .project-art:after{width:150px;height:150px;right:0;top:-45px}
+    .project-art.green{background:linear-gradient(135deg,#0a3e28,#20a45d)}
+    .project-art.light{background:linear-gradient(135deg,#e6f7eb,#b8e9c8);color:var(--deep)}
+    .project-art.dark{background:linear-gradient(135deg,#14251b,#355846)}
+    .project-art.purple{background:linear-gradient(135deg,#36285c,#8b79d8)}
+    .project-art.orange{background:linear-gradient(135deg,#7e3c12,#f1a45b)}
+    .project-art.blue{background:linear-gradient(135deg,#113c55,#4da4bd)}
+    .project-mock{position:relative;z-index:1;background:#ffffffed;color:#173323;border-radius:12px;padding:15px;width:80%;box-shadow:0 12px 30px #001b0d25}
+    .project-mock small{font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--green)}
+    .project-mock b{font:800 1rem Manrope;display:block;margin-top:5px}
+    .project-info{padding:20px}
+    .project-info h3{font-size:1.08rem;margin-bottom:7px}
+    .project-info p{font-size:.86rem;color:var(--muted)}
+    .project-tag{display:inline-block;margin-top:13px;border-radius:50px;background:#edf8f0;color:var(--green);padding:5px 9px;font-size:.72rem;font-weight:800}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .step{border-top:2px solid #ccebd5;padding-top:18px}
+    .step-num{font:800 2rem Manrope;color:#b4dfc2}
+    .step h3{font-size:1.08rem;margin:9px 0}
+    .step p{font-size:.88rem;color:var(--muted)}
+    .cta{padding:0 0 88px}
+    .cta-panel{background:linear-gradient(115deg,#062f1d,#0b7a43);border-radius:25px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:30px;color:#fff;overflow:hidden;position:relative}
+    .cta-panel:after{content:"✳";position:absolute;right:24%;top:-100px;font-size:330px;color:#ffffff08}
+    .cta-panel h2{font-size:clamp(1.8rem,3.7vw,2.8rem);max-width:610px;margin:0 0 12px}
+    .cta-panel p{color:#c9ead4;max-width:550px}
+    .cta-panel .btn{position:relative;z-index:1;white-space:nowrap}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+    .contact-info h2{margin-top:12px}
+    .contact-info>p{color:var(--muted);margin:15px 0 25px}
+    .contact-line{display:flex;gap:13px;align-items:center;margin:17px 0}
+    .contact-line .service-icon{margin:0;width:44px;height:44px;flex-shrink:0}
+    .contact-line small{display:block;color:var(--muted)}
+    .contact-form{border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 12px 40px #06391b08}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+    .field.full{grid-column:1/-1}
+    label{font-size:.84rem;font-weight:700}
+    input,select,textarea{width:100%;border:1px solid #dce8df;border-radius:10px;padding:12px 13px;background:#fbfdfb;color:var(--ink);outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #0b7a4312}
+    textarea{min-height:125px;resize:vertical}
+    .form-note{font-size:.77rem;color:var(--muted);margin-top:10px}
+    footer{background:#062b1b;color:#d5e9dc;padding:48px 0 20px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr .7fr .8fr;gap:40px;padding-bottom:35px}
+    footer .brand{color:#fff}
+    footer .brand small{color:#a9cbb5}
+    footer .footer-desc{color:#a9cbb5;max-width:350px;margin-top:16px;font-size:.9rem}
+    footer h3{font-size:.95rem;letter-spacing:0;margin-bottom:15px}
+    .footer-links{display:grid;gap:9px;color:#b7d3c0;font-size:.88rem}
+    .footer-links a:hover{color:#fff}
+    .copyright{border-top:1px solid #ffffff1b;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#91b7a0;font-size:.8rem}
+    .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#20c66b;color:white;display:grid;place-items:center;box-shadow:0 8px 25px #0b7a4340;font-size:1.6rem;border:3px solid #fff;transition:.2s}
+    .whatsapp-float:hover{transform:translateY(-4px)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:25px}.hero{padding:65px 0 50px}.visual{min-height:370px}.dashboard{max-width:430px}.about-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.service-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.cta-panel{padding:36px;align-items:flex-start;flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+    @media(max-width:650px){.container{width:min(100% - 30px,1140px)}.topbar .container{justify-content:center;text-align:center}.nav{height:70px}.brand{font-size:1.2rem}.brand-mark{width:38px;height:38px}.menu-btn{display:inline-flex}.nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;padding:18px 22px 22px;border-bottom:1px solid var(--line);box-shadow:0 18px 28px #06391b0b;flex-direction:column;align-items:stretch;gap:5px}.nav-links.open{display:flex}.nav-links a:not(.btn){padding:10px 5px}.nav-links .btn{margin-top:8px}.hero{padding:52px 0 35px}h1{font-size:2.65rem}.hero-copy{font-size:1rem}.visual{min-height:330px}.visual-orb{width:270px;height:270px}.dashboard{padding:13px}.dash-banner{padding:17px}.dash-cards{gap:6px}.mini-card{padding:9px 7px}.float-note{right:0;bottom:2px}.stats-grid{grid-template-columns:repeat(2,1fr);gap:18px}.stat:nth-child(2){border:0}.stat{padding:5px}section{padding:65px 0}.section-head{margin-bottom:30px}.service-grid,.portfolio-grid{grid-template-columns:1fr}.service-card{padding:23px}.project-art{height:180px}.about-art{min-height:330px}.process-grid{grid-template-columns:1fr 1fr;gap:24px 17px}.cta{padding-bottom:65px}.cta-panel{padding:28px 23px}.contact-form{padding:20px}.form-grid{grid-template-columns:1fr;gap:0}.field.full{grid-column:auto}.footer-grid{grid-template-columns:1fr;gap:27px}.footer-grid>div:first-child{grid-column:auto}.copyright{flex-direction:column}.whatsapp-float{width:53px;height:53px;right:14px;bottom:14px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>Creative ideas. Smart technology. Real results.</span><span>Serving clients online · Nigeria</span></div></div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="TECGLOW home"><span class="brand-mark">T<span style="color:#9ff0b7">.</span></span><span>TECGLOW<small>Tech & Creative Solutions</small></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="https://wa.me/2348160833158?text=Hello%20TECGLOW%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">Let's Talk ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Digital creativity, built for you</div>
+          <h1>We turn bold ideas into <span>digital experiences.</span></h1>
+          <p class="hero-copy">From standout graphics to modern websites, TECGLOW helps people and businesses look professional, connect with customers, and grow with confidence.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#contact">Start a project <span>↗</span></a><a class="btn btn-outline" href="#services">Explore our services ↓</a></div>
+          <div class="trust"><span><span class="trust-check">✓</span> Creative solutions</span><span><span class="trust-check">✓</span> Mobile-friendly design</span><span><span class="trust-check">✓</span> Personal support</span></div>
+        </div>
+        <div class="visual reveal" aria-label="Illustration of digital creative services">
+          <div class="visual-orb"></div>
+          <div class="dashboard">
+            <div class="dash-top"><div class="dash-title">Your next big idea starts here</div><span class="dash-pill">TECGLOW STUDIO</span></div>
+            <div class="dash-banner"><small>WHERE TECHNOLOGY MEETS CREATIVITY</small><h3>Design. Develop. Elevate.</h3><span style="font-size:.77rem;color:#d0f0db">Digital solutions made with purpose.</span></div>
+            <div class="dash-cards">
+              <div class="mini-card"><div class="mini-icon">⌘</div><b>Websites</b><small>Built to connect</small></div>
+              <div class="mini-card"><div class="mini-icon">✳</div><b>Graphics</b><small>Made to stand out</small></div>
+              <div class="mini-card"><div class="mini-icon">↗</div><b>Branding</b><small>Ready to grow</small></div>
+            </div>
+          </div>
+          <div class="float-note"><span>✦</span> Ideas into impact</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats"><div class="container stats-grid">
+      <div class="stat"><strong>Creative first</strong><span>Design with purpose</span></div>
+      <div class="stat"><strong>Mobile ready</strong><span>Works across screens</span></div>
+      <div class="stat"><strong>Client focused</strong><span>Your goals come first</span></div>
+      <div class="stat"><strong>Built to grow</strong><span>Flexible digital solutions</span></div>
+    </div></div>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">What we do</span><h2>Smart services for your next move.</h2><p>Whether you're starting out or improving an existing brand, get practical digital services designed around your goals.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal"><div class="service-icon">⌘</div><h3>Website Design & Development</h3><p>Responsive business websites, landing pages, portfolios, and simple web experiences that look great on mobile and desktop.</p><a class="text-link" href="#contact" data-service="Website Design & Development">Discuss a website <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">✳</div><h3>Graphics Design</h3><p>Flyers, banners, social media designs, invitations, promotional artwork, and clean visual content for your brand.</p><a class="text-link" href="#contact" data-service="Graphics Design">Create a design <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">◈</div><h3>Brand Identity</h3><p>Logo concepts, brand colours, typography, and visual direction to help your business present a consistent image.</p><a class="text-link" href="#contact" data-service="Brand Identity">Build your brand <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">▤</div><h3>Business Materials</h3><p>Professional invoices, receipts, business cards, price lists, and other materials that make daily business easier.</p><a class="text-link" href="#contact" data-service="Business Materials">Upgrade your materials <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">◎</div><h3>Digital Setup & Support</h3><p>Help with website publishing, domain guidance, basic website updates, and getting your digital presence organised.</p><a class="text-link" href="#contact" data-service="Digital Setup & Support">Get support <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">↗</div><h3>Custom Digital Projects</h3><p>Have a fresh idea? Let's discuss a custom page, online catalogue, small business tool, or creative project.</p><a class="text-link" href="#contact" data-service="Custom Digital Project">Share your idea <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-art reveal"><span class="art-label">The TECGLOW approach</span><div class="art-quote">Good design gets attention. Smart technology creates possibilities.</div><div class="art-bottom"><div><strong>TECGLOW</strong><small>Tech & Creative Solutions</small></div><span style="font-size:2rem">✳</span></div></div>
+        <div class="about-copy reveal"><span class="kicker">About TECGLOW</span><h2>Technology with a creative touch.</h2><p>TECGLOW Tech & Creative Solutions brings design thinking and practical technology together to help individuals, creators, and businesses communicate better online.</p><p>We believe a professional digital presence should feel clear, work smoothly, and reflect the people behind the brand. Every project starts with listening, then shaping the right solution.</p><ul class="check-list"><li><span>✓</span> Clear communication from idea to delivery</li><li><span>✓</span> Designs tailored to your business identity</li><li><span>✓</span> Responsive layouts for phones and computers</li><li><span>✓</span> Practical guidance for your next steps</li></ul><a class="btn btn-primary" href="#contact">Tell us about your project ↗</a></div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Selected work</span><h2>A glimpse of what we can create.</h2><p>These are sample project concepts to demonstrate our creative direction. Replace them with your real client work and screenshots as your portfolio grows.</p></div>
+        <div class="portfolio-grid">
+          <article class="project reveal"><div class="project-art green"><div class="project-mock"><small>Digital presence</small><b>Business website</b><span style="font-size:.68rem">Clear. Modern. Responsive.</span></div></div><div class="project-info"><h3>Business Website Concept</h3><p>A polished online home for a growing business.</p><span class="project-tag">Web design</span></div></article>
+          <article class="project reveal"><div class="project-art light"><div class="project-mock"><small>Visual identity</small><b>Make your brand glow.</b><span style="font-size:.68rem">A consistent creative system.</span></div></div><div class="project-info"><h3>Brand Identity Concept</h3><p>Logo direction, colour palette, and visual consistency.</p><span class="project-tag">Branding</span></div></article>
+          <article class="project reveal"><div class="project-art dark"><div class="project-mock"><small>Creative campaign</small><b>Ideas worth sharing.</b><span style="font-size:.68rem">Promotional design series.</span></div></div><div class="project-info"><h3>Social Media Campaign</h3><p>Visual content designed to communicate at a glance.</p><span class="project-tag">Graphics</span></div></article>
+          <article class="project reveal"><div class="project-art purple"><div class="project-mock"><small>Event creative</small><b>Make the moment memorable.</b></div></div><div class="project-info"><h3>Event Flyer Concept</h3><p>Event artwork with clear hierarchy and strong visuals.</p><span class="project-tag">Print & digital</span></div></article>
+          <article class="project reveal"><div class="project-art orange"><div class="project-mock"><small>Business essentials</small><b>Details matter.</b></div></div><div class="project-info"><h3>Invoice & Business Materials</h3><p>Useful everyday materials with a professional finish.</p><span class="project-tag">Business design</span></div></article>
+          <article class="project reveal"><div class="project-art blue"><div class="project-mock"><small>Online catalogue</small><b>Show what you offer.</b></div></div><div class="project-info"><h3>Product Catalogue Concept</h3><p>A simple, organised way to present products or services.</p><span class="project-tag">Digital solutions</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container"><div class="section-head reveal"><span class="kicker">How it works</span><h2>Simple steps. Clear direction.</h2><p>A straightforward process helps us understand what you need and keep your project moving.</p></div>
+        <div class="process-grid">
+          <div class="step reveal"><div class="step-num">01</div><h3>Tell us your idea</h3><p>Share your goal, preferred style, deadline, and any useful examples.</p></div>
+          <div class="step reveal"><div class="step-num">02</div><h3>Plan the solution</h3><p>We clarify the scope, deliverables, timeline, and agreed price before work starts.</p></div>
+          <div class="step reveal"><div class="step-num">03</div><h3>Create & refine</h3><p>We develop the design or website and review agreed changes with you.</p></div>
+          <div class="step reveal"><div class="step-num">04</div><h3>Deliver & guide</h3><p>Receive the agreed files or website and practical next-step guidance.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta"><div class="container"><div class="cta-panel reveal"><div><h2>Your idea deserves a professional glow.</h2><p>Tell us what you're planning. We'll help you find a creative, practical way to bring it to life.</p></div><a class="btn" style="background:#fff;color:var(--deep)" href="https://wa.me/2348160833158?text=Hello%20TECGLOW%2C%20I%20have%20a%20project%20idea." target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div></div></div>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal"><span class="kicker">Let's connect</span><h2>Have a project in mind?</h2><p>Send a few details about what you need. Your message will open in WhatsApp so you can review and send it directly.</p>
+          <div class="contact-line"><div class="service-icon">✆</div><div><strong>WhatsApp / Phone</strong><small>0816 083 3158</small></div></div>
+          <div class="contact-line"><div class="service-icon">◷</div><div><strong>Project enquiries</strong><small>Message anytime; replies depend on availability.</small></div></div>
+          <div class="contact-line"><div class="service-icon">⌖</div><div><strong>Location</strong><small>Nigeria · Working with clients online</small></div></div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name *</label><input id="name" name="name" required placeholder="Enter your name"></div>
+            <div class="field"><label for="phone">Your phone (optional)</label><input id="phone" name="phone" type="tel" placeholder="Your contact number"></div>
+            <div class="field full"><label for="service">What do you need? *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Website Design & Development</option><option>Graphics Design</option><option>Brand Identity</option><option>Business Materials</option><option>Digital Setup & Support</option><option>Custom Digital Project</option><option>Other enquiry</option></select></div>
+            <div class="field full"><label for="message">Tell us about your project *</label><textarea id="message" name="message" required placeholder="What would you like us to create?"></textarea></div>
+          </div>
+          <button class="btn btn-primary" type="submit">Send enquiry via WhatsApp ↗</button>
+          <p class="form-note">This form does not store information on this website. It prepares a WhatsApp message for you to send.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">
+    <div class="footer-grid">
+      <div><a class="brand" href="#home"><span class="brand-mark">T<span style="color:#9ff0b7">.</span></span><span>TECGLOW<small>Tech & Creative Solutions</small></span></a><p class="footer-desc">Where Technology Meets Creativity. Helping ideas and businesses shine through design and digital solutions.</p></div>
+      <div><h3>Explore</h3><div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About us</a><a href="#portfolio">Portfolio</a></div></div>
+      <div><h3>Get in touch</h3><div class="footer-links"><a href="#contact">Start a project</a><a href="https://wa.me/2348160833158" target="_blank" rel="noopener">WhatsApp: 08160833158</a><a href="#process">Our process</a></div></div>
+    </div>
+    <div class="copyright"><span>© <span id="year"></span> TECGLOW Tech & Creative Solutions. All rights reserved.</span><span>Where Technology Meets Creativity.</span></div>
+  </div></footer>
+  <a class="whatsapp-float" href="https://wa.me/2348160833158?text=Hello%20TECGLOW%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat with TECGLOW on WhatsApp">✆</a>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-service]').forEach(link => {
+      link.addEventListener('click', () => {
+        const select = document.getElementById('service');
+        select.value = link.dataset.service;
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const text = `Hello TECGLOW Tech & Creative Solutions!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone || 'Not provided')}%0AService: ${encodeURIComponent(service)}%0AProject details: ${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/2348160833158?text=${text}`, '_blank', 'noopener');
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.12});
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
